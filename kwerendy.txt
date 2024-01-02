@@ -5,7 +5,13 @@
 
 
 1. WYPISZ:
-aktualizujące dane w tabeli pracownicy. Dla wszystkich pracowników, którzy 
+a) aktualizujące dane w tabeli pracownicy. Dla wszystkich pracowników, którzy 
 zatrudnieni są jako kelner, należy dokonać zmiany stanowiska na barman (kelner =3, barman =4) 
 
 UPDATE pracownicy SET stanowisko=4 WHERE stanowisko=3;
+
+
+b) wybierające jedynie pole nazwisko dla wszystkich rekordów w tabeli autorzy oraz obliczające liczbę tytułów danego autora znajdujących się w bazie biblioteka. 
+Nazwa kolumny Strona 3 z 5 (alias) dla zliczania tytułów: ile_tytulow
+
+SELECT autorzy.nazwisko, COUNT(*) as ile_tytulow FROM autorzy, `ksiazki` WHERE autorzy.id=ksiazki.id_autor GROUP BY autorzy.nazwisko;
